@@ -1,6 +1,4 @@
-﻿
 <div id="grid"></div>
-
 <script type="text/javascript">
     $(function () {
         var dataSource = new kendo.data.DataSource({
@@ -31,16 +29,29 @@
             serverPaging: true,
             serverFiltering: true,
             serverSorting: true
-            
+
         });
 
         $("#grid").kendoGrid({
             dataSource: dataSource,
+            reorderable: true,
+            groupable: true,
+            resizable: true,
             filterable: true,
-            sortable: true,
+            columnMenu: true,
             pageable: true,
+            scrollable: true,
             filterable: {
-                mode: "row"
+                extra: false,
+                operators: {
+                    string: {
+                        startswith: "Starts with",
+                        eq: "Is equal to",
+                        neq: "Is not equal to",
+                        contains: "Contains",
+                        endswith: "Endswith"
+                    }
+                }
             },
             columns:
                 [{
@@ -48,20 +59,10 @@
                     filterable: false
                 },
                 {
-                    field: "Username",
-                    filterable: {
-                        cell: {
-                            operator: "contains"
-                        }
-                    }
+                    field: "Username"
                 },
                 {
-                    field: "Email",
-                    filterable: {
-                        cell: {
-                            operator: "contains"
-                        }
-                    }
+                    field: "Email"
                 }]
         });
     });
