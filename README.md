@@ -19,23 +19,23 @@ Components used
 
 Bower & grunt Installation
 -------
-1. `npm install bower -g`
-2. `bower init`
-3. create ``.bowerrc` file and add following content
+* `npm install bower -g`
+* `bower init`
+* create ``.bowerrc` file and add following content
 ```javascript
 {
 		directory : Content/bower_components
 }
 ```
-4. Install packages as below
+* Install packages as below
 ```
 bower install <package> save
 ```
-5. `npm install grunt-cli -g`
-6. `npm init`
-7. `npm install grunt`
-8. `npm install grunt-wiredep`
-9. Add `gruntfile.js` file with below settings
+* `npm install grunt-cli -g`
+* `npm init`
+* `npm install grunt`
+* `npm install grunt-wiredep`
+* Add `gruntfile.js` file with below settings
 ```javascript
 module.exports = function (grunt) {
     grunt.initConfig({
@@ -68,7 +68,7 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['wiredep']);
 };
 ```
-10. Edit `bundleconfig.cs` as below
+* Edit `bundleconfig.cs` as below
 ```csharp
 bundles.Add(new ScriptBundle("~/bundles/bowerjs")
 	             // bower:js
@@ -79,9 +79,9 @@ bundles.Add(new StyleBundle("~/bundles/bowercss")
 	             // endbower
            );
 ```
-11. type `grunt` & run
-12. `Bundleconfig.cs` will now get updated
-13. Kendo UI Bower file update
+* type `grunt` & run
+* `Bundleconfig.cs` will now get updated
+* Kendo UI Bower file update
 ```javascript
 "main": [
       "js/kendo.all.min.js",
@@ -96,11 +96,11 @@ bundles.Add(new StyleBundle("~/bundles/bowercss")
 Kendo UI and OData Integration
 -------
 
-1. Install WebApi.OData package from nuget
+* Install WebApi.OData package from nuget
 ```
 PM> Install-Package Microsoft.AspNet.WebApi.OData
 ```
-2. Prepare custom model
+* Prepare custom model
 ```csharp
 public class User
 {
@@ -109,7 +109,7 @@ public class User
 		public string Email { get; set; }
 }
 ```
-3. Create new Api controller as follows (inherit it from `ODataController` class)
+* Create new Api controller as follows (inherit it from `ODataController` class)
 ```csharp
 public class UsersController : ODataController
 {
@@ -134,8 +134,8 @@ public class UsersController : ODataController
 		}
 }
 ```
-4. Remeber the `IQueryable`
-5. Create a view (HTML or Razor) and add the below code
+* Remeber the `IQueryable`
+* Create a view (HTML or Razor) and add the below code
 ```javascript
 <div id="grid"></div>
 <script type="text/javascript">
