@@ -1,0 +1,409 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EffortDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IBOBTrans">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="int" Nullable="false" />
+          <Property Name="EventType" Type="nvarchar" MaxLength="30" />
+          <Property Name="ITRNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="DummyITRNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="TwoDPin" Type="nvarchar" MaxLength="30" />
+          <Property Name="RFID" Type="nvarchar" MaxLength="30" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="30" />
+          <Property Name="OldBarcode" Type="nvarchar" MaxLength="30" />
+          <Property Name="ScanningType" Type="nvarchar" MaxLength="30" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ActivityDate" Type="datetime" Nullable="false" />
+          <Property Name="DepotLoc" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DeviceName" Type="nvarchar(max)" />
+          <Property Name="IbcType" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ContainerNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="SapSendStatus" Type="bit" Nullable="false" />
+          <Property Name="SapSendTime" Type="datetime" />
+          <Property Name="SapSyncStatus" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsDeletedSyncStatus" Type="bit" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="SapUniqueKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsModifiedSyncStatus" Type="bit" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="IsModified" Type="bit" />
+          <Property Name="InputType" Type="nvarchar" MaxLength="20" />
+          <Property Name="TransId_LS" Type="int" />
+          <Property Name="LS_Name" Type="varchar" MaxLength="50" />
+          <Property Name="Approval" Type="bit" />
+          <Property Name="IsCreated" Type="bit" />
+          <Property Name="IsUpdated" Type="bit" />
+          <Property Name="GenericDate_LS" Type="datetime" />
+          <Property Name="itrBinType" Type="nvarchar" MaxLength="30" />
+          <Property Name="prevITRNumber" Type="nvarchar" MaxLength="30" />
+          <Property Name="prevEvent" Type="nvarchar" MaxLength="30" />
+          <Property Name="prevOneDBarcode" Type="nvarchar" MaxLength="30" />
+          <Property Name="ApprovalTypeId" Type="int" />
+          <Property Name="TagExceptionTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Tag_Details">
+          <Key>
+            <PropertyRef Name="TagDetailsID" />
+          </Key>
+          <Property Name="TagDetailsID" Type="int" Nullable="false" />
+          <Property Name="PONumber" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Barcode" Type="nvarchar" MaxLength="30" />
+          <Property Name="RFID" Type="nvarchar" MaxLength="30" />
+          <Property Name="TagEPC" Type="nvarchar" MaxLength="50" />
+          <Property Name="TagTID" Type="nvarchar" MaxLength="50" />
+          <Property Name="ETSI_QI" Type="nvarchar" MaxLength="10" />
+          <Property Name="FCC_QI" Type="nvarchar" MaxLength="10" />
+          <Property Name="JPN_QI" Type="nvarchar" MaxLength="10" />
+          <Property Name="BoxNo" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TagAssignment">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="int" Nullable="false" />
+          <Property Name="DepotLoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="IBCType" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TwoDBarcode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RFID" Type="nvarchar" MaxLength="24" />
+          <Property Name="OneDBarcode" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="ActivityDate" Type="datetime" Nullable="false" />
+          <Property Name="IsRetagging" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" />
+          <Property Name="DeletedDate" Type="datetime" />
+          <Property Name="DeviceName" Type="nvarchar(max)" />
+          <Property Name="RetaggingCount" Type="int" />
+          <Property Name="TagId_LS" Type="int" />
+          <Property Name="LS_Name" Type="varchar" MaxLength="50" />
+          <Property Name="IsCreated" Type="bit" />
+          <Property Name="IsUpdated" Type="bit" />
+          <Property Name="GenericDate_LS" Type="datetime" />
+          <Property Name="FirstPrevious1D" Type="nvarchar" MaxLength="10" />
+          <Property Name="FirstPrevious2D" Type="nvarchar" MaxLength="20" />
+          <Property Name="SecondPrevious1D" Type="nvarchar" MaxLength="10" />
+          <Property Name="SecondPrevious2D" Type="nvarchar" MaxLength="20" />
+          <Property Name="FirstOldBinTypeId" Type="int" />
+          <Property Name="SecondOldBinTypeId" Type="int" />
+        </EntityType>
+        <EntityType Name="TagExceptionType">
+          <Key>
+            <PropertyRef Name="ExceptionId" />
+          </Key>
+          <Property Name="ExceptionId" Type="int" Nullable="false" />
+          <Property Name="ExceptionName" Type="varchar" MaxLength="100" />
+          <Property Name="ExceptionDescription" Type="varchar" MaxLength="250" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="int" Nullable="false" />
+          <Property Name="FristName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Username" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Userlang" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MobileNumber" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="ModifiedDate" Type="datetime" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="DeletedDate" Type="datetime" />
+        </EntityType>
+        <EntityContainer Name="EffortDbModelStoreContainer">
+          <EntitySet Name="IBOBTrans" EntityType="Self.IBOBTrans" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tag_Details" EntityType="Self.Tag_Details" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagAssignment" EntityType="Self.TagAssignment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TagExceptionType" EntityType="Self.TagExceptionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserMaster" EntityType="Self.UserMaster" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EffortDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IBOBTran">
+          <Key>
+            <PropertyRef Name="TransactionId" />
+          </Key>
+          <Property Name="TransactionId" Type="Int32" Nullable="false" />
+          <Property Name="EventType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ITRNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DummyITRNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TwoDPin" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RFID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Barcode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="OldBarcode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ScanningType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DepotLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeviceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IbcType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContainerNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="SapSendStatus" Type="Boolean" Nullable="false" />
+          <Property Name="SapSendTime" Type="DateTime" Precision="3" />
+          <Property Name="SapSyncStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeletedSyncStatus" Type="Boolean" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="SapUniqueKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsModifiedSyncStatus" Type="Boolean" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="IsModified" Type="Boolean" />
+          <Property Name="InputType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="TransId_LS" Type="Int32" />
+          <Property Name="LS_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Approval" Type="Boolean" />
+          <Property Name="IsCreated" Type="Boolean" />
+          <Property Name="IsUpdated" Type="Boolean" />
+          <Property Name="GenericDate_LS" Type="DateTime" Precision="3" />
+          <Property Name="itrBinType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="prevITRNumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="prevEvent" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="prevOneDBarcode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ApprovalTypeId" Type="Int32" />
+          <Property Name="TagExceptionTypeId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Tag_Details">
+          <Key>
+            <PropertyRef Name="TagDetailsID" />
+          </Key>
+          <Property Name="TagDetailsID" Type="Int32" Nullable="false" />
+          <Property Name="PONumber" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Barcode" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="RFID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TagEPC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TagTID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ETSI_QI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FCC_QI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="JPN_QI" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="BoxNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TagAssignment">
+          <Key>
+            <PropertyRef Name="TagId" />
+          </Key>
+          <Property Name="TagId" Type="Int32" Nullable="false" />
+          <Property Name="DepotLoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IBCType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TwoDBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RFID" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="OneDBarcode" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="ActivityDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsRetagging" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+          <Property Name="DeviceName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="RetaggingCount" Type="Int32" />
+          <Property Name="TagId_LS" Type="Int32" />
+          <Property Name="LS_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsCreated" Type="Boolean" />
+          <Property Name="IsUpdated" Type="Boolean" />
+          <Property Name="GenericDate_LS" Type="DateTime" Precision="3" />
+          <Property Name="FirstPrevious1D" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FirstPrevious2D" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SecondPrevious1D" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="SecondPrevious2D" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="FirstOldBinTypeId" Type="Int32" />
+          <Property Name="SecondOldBinTypeId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TagExceptionType">
+          <Key>
+            <PropertyRef Name="ExceptionId" />
+          </Key>
+          <Property Name="ExceptionId" Type="Int32" Nullable="false" />
+          <Property Name="ExceptionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ExceptionDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserMaster">
+          <Key>
+            <PropertyRef Name="Userid" />
+          </Key>
+          <Property Name="Userid" Type="Int32" Nullable="false" />
+          <Property Name="FristName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Userlang" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MobileNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+          <Property Name="DeletedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="EffortDbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IBOBTrans" EntityType="Self.IBOBTran" />
+          <EntitySet Name="Tag_Details" EntityType="Self.Tag_Details" />
+          <EntitySet Name="TagAssignments" EntityType="Self.TagAssignment" />
+          <EntitySet Name="TagExceptionTypes" EntityType="Self.TagExceptionType" />
+          <EntitySet Name="UserMasters" EntityType="Self.UserMaster" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EffortDbModelStoreContainer" CdmEntityContainer="EffortDbEntities">
+          <EntitySetMapping Name="IBOBTrans">
+            <EntityTypeMapping TypeName="EffortDbModel.IBOBTran">
+              <MappingFragment StoreEntitySet="IBOBTrans">
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="EventType" ColumnName="EventType" />
+                <ScalarProperty Name="ITRNumber" ColumnName="ITRNumber" />
+                <ScalarProperty Name="DummyITRNumber" ColumnName="DummyITRNumber" />
+                <ScalarProperty Name="TwoDPin" ColumnName="TwoDPin" />
+                <ScalarProperty Name="RFID" ColumnName="RFID" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="OldBarcode" ColumnName="OldBarcode" />
+                <ScalarProperty Name="ScanningType" ColumnName="ScanningType" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+                <ScalarProperty Name="DepotLoc" ColumnName="DepotLoc" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="IbcType" ColumnName="IbcType" />
+                <ScalarProperty Name="ContainerNumber" ColumnName="ContainerNumber" />
+                <ScalarProperty Name="SapSendStatus" ColumnName="SapSendStatus" />
+                <ScalarProperty Name="SapSendTime" ColumnName="SapSendTime" />
+                <ScalarProperty Name="SapSyncStatus" ColumnName="SapSyncStatus" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsDeletedSyncStatus" ColumnName="IsDeletedSyncStatus" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="SapUniqueKey" ColumnName="SapUniqueKey" />
+                <ScalarProperty Name="IsModifiedSyncStatus" ColumnName="IsModifiedSyncStatus" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="IsModified" ColumnName="IsModified" />
+                <ScalarProperty Name="InputType" ColumnName="InputType" />
+                <ScalarProperty Name="TransId_LS" ColumnName="TransId_LS" />
+                <ScalarProperty Name="LS_Name" ColumnName="LS_Name" />
+                <ScalarProperty Name="Approval" ColumnName="Approval" />
+                <ScalarProperty Name="IsCreated" ColumnName="IsCreated" />
+                <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+                <ScalarProperty Name="GenericDate_LS" ColumnName="GenericDate_LS" />
+                <ScalarProperty Name="itrBinType" ColumnName="itrBinType" />
+                <ScalarProperty Name="prevITRNumber" ColumnName="prevITRNumber" />
+                <ScalarProperty Name="prevEvent" ColumnName="prevEvent" />
+                <ScalarProperty Name="prevOneDBarcode" ColumnName="prevOneDBarcode" />
+                <ScalarProperty Name="ApprovalTypeId" ColumnName="ApprovalTypeId" />
+                <ScalarProperty Name="TagExceptionTypeId" ColumnName="TagExceptionTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tag_Details">
+            <EntityTypeMapping TypeName="EffortDbModel.Tag_Details">
+              <MappingFragment StoreEntitySet="Tag_Details">
+                <ScalarProperty Name="TagDetailsID" ColumnName="TagDetailsID" />
+                <ScalarProperty Name="PONumber" ColumnName="PONumber" />
+                <ScalarProperty Name="Barcode" ColumnName="Barcode" />
+                <ScalarProperty Name="RFID" ColumnName="RFID" />
+                <ScalarProperty Name="TagEPC" ColumnName="TagEPC" />
+                <ScalarProperty Name="TagTID" ColumnName="TagTID" />
+                <ScalarProperty Name="ETSI_QI" ColumnName="ETSI_QI" />
+                <ScalarProperty Name="FCC_QI" ColumnName="FCC_QI" />
+                <ScalarProperty Name="JPN_QI" ColumnName="JPN_QI" />
+                <ScalarProperty Name="BoxNo" ColumnName="BoxNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagAssignments">
+            <EntityTypeMapping TypeName="EffortDbModel.TagAssignment">
+              <MappingFragment StoreEntitySet="TagAssignment">
+                <ScalarProperty Name="TagId" ColumnName="TagId" />
+                <ScalarProperty Name="DepotLoc" ColumnName="DepotLoc" />
+                <ScalarProperty Name="IBCType" ColumnName="IBCType" />
+                <ScalarProperty Name="TwoDBarcode" ColumnName="TwoDBarcode" />
+                <ScalarProperty Name="RFID" ColumnName="RFID" />
+                <ScalarProperty Name="OneDBarcode" ColumnName="OneDBarcode" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ActivityDate" ColumnName="ActivityDate" />
+                <ScalarProperty Name="IsRetagging" ColumnName="IsRetagging" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+                <ScalarProperty Name="DeviceName" ColumnName="DeviceName" />
+                <ScalarProperty Name="RetaggingCount" ColumnName="RetaggingCount" />
+                <ScalarProperty Name="TagId_LS" ColumnName="TagId_LS" />
+                <ScalarProperty Name="LS_Name" ColumnName="LS_Name" />
+                <ScalarProperty Name="IsCreated" ColumnName="IsCreated" />
+                <ScalarProperty Name="IsUpdated" ColumnName="IsUpdated" />
+                <ScalarProperty Name="GenericDate_LS" ColumnName="GenericDate_LS" />
+                <ScalarProperty Name="FirstPrevious1D" ColumnName="FirstPrevious1D" />
+                <ScalarProperty Name="FirstPrevious2D" ColumnName="FirstPrevious2D" />
+                <ScalarProperty Name="SecondPrevious1D" ColumnName="SecondPrevious1D" />
+                <ScalarProperty Name="SecondPrevious2D" ColumnName="SecondPrevious2D" />
+                <ScalarProperty Name="FirstOldBinTypeId" ColumnName="FirstOldBinTypeId" />
+                <ScalarProperty Name="SecondOldBinTypeId" ColumnName="SecondOldBinTypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TagExceptionTypes">
+            <EntityTypeMapping TypeName="EffortDbModel.TagExceptionType">
+              <MappingFragment StoreEntitySet="TagExceptionType">
+                <ScalarProperty Name="ExceptionId" ColumnName="ExceptionId" />
+                <ScalarProperty Name="ExceptionName" ColumnName="ExceptionName" />
+                <ScalarProperty Name="ExceptionDescription" ColumnName="ExceptionDescription" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserMasters">
+            <EntityTypeMapping TypeName="EffortDbModel.UserMaster">
+              <MappingFragment StoreEntitySet="UserMaster">
+                <ScalarProperty Name="Userid" ColumnName="Userid" />
+                <ScalarProperty Name="FristName" ColumnName="FristName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Userlang" ColumnName="Userlang" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobileNumber" ColumnName="MobileNumber" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="DeletedDate" ColumnName="DeletedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

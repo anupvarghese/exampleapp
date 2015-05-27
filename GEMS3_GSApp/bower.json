@@ -1,0 +1,22 @@
+{
+  "name": "GEMS3_GSApp",
+  "version": "1.0.0",
+  "description": "GEMS 3 GS Client config",
+  "authors": [
+    "Anoop Varghese <anoop.varghese@goodpack.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.4",
+    "respond": "~1.4.2",
+    "modernizer": "~2.8.2",
+    "jquery-validate": "~1.13.1",
+    "kendo-ui": "https://bower.telerik.com/bower-kendo-ui.git",
+    "fontawesome": "~4.3.0"
+  },
+  "resolutions": {
+    "jquery": "~2.1.4"
+  }
+}

@@ -1,0 +1,112 @@
+﻿
+<div id="grid"></div>
+
+<script type="text/javascript">
+$(function () {
+    var dataSource = new kendo.data.DataSource({
+        type: "odata",
+        transport: {
+            read: {
+                url: "/api/ScanDetails",
+                dataType: "json"
+            },
+        },
+        schema: {
+            data: function (data) {
+                return data["value"];
+            },
+            total: function (data) {
+                return data["odata.count"];
+            },
+            model: {
+                fields: {
+                    ITRNumber: { type: "string" },
+                    EventType: { type: "string" },
+                    OneDBarcode: { type: "string" },
+                    DepotLoc: { type: "string" },
+                    ActivityDate: { type: "string" },
+                    ScannedSku: { type: "string" },
+                    ITRSku: { type: "string" },
+                    UserName: { type: "string" }
+                }
+            }
+        },
+        pageSize: 10,
+        serverPaging: true,
+        serverFiltering: true,
+        serverSorting: true
+    });
+
+    $("#grid").kendoGrid({
+        dataSource: dataSource,
+        filterable: true,
+        sortable: true,
+        pageable: true,
+        filterable: {
+            mode: "row"
+        },
+        columns: [
+            {
+                field: "ITRNumber",
+                width: 150,
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "EventType",
+                width: 100,
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "OneDBarcode", filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "DepotLoc",
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "ActivityDate"
+            },
+            {
+                field: "ScannedSku",                
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "ITRSku",
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            },
+            {
+                field: "UserName",
+                filterable: {
+                    cell: {
+                        operator: "contains"
+                    }
+                }
+            }
+        ]
+    });
+});
+</script>

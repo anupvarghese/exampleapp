@@ -1,0 +1,68 @@
+﻿
+<div id="grid"></div>
+
+<script type="text/javascript">
+    $(function () {
+        var dataSource = new kendo.data.DataSource({
+            type: "odata",
+            transport: {
+                read: {
+                    url: "/api/Users",
+                    dataType: "json"
+                },
+            },
+            schema: {
+                data: function (data) {
+                    return data["value"];
+                },
+                total: function (data) {
+                    return data["odata.count"];
+                },
+                model: {
+                    fields: {
+                        Id: { type: "number" },
+                        Username: { type: "string" },
+                        Email: { type: "string" }
+                    }
+                }
+            },
+            pageSize: 10,
+            reorderable: true,
+            serverPaging: true,
+            serverFiltering: true,
+            serverSorting: true
+            
+        });
+
+        $("#grid").kendoGrid({
+            dataSource: dataSource,
+            filterable: true,
+            sortable: true,
+            pageable: true,
+            filterable: {
+                mode: "row"
+            },
+            columns:
+                [{
+                    field: "Id",
+                    filterable: false
+                },
+                {
+                    field: "Username",
+                    filterable: {
+                        cell: {
+                            operator: "contains"
+                        }
+                    }
+                },
+                {
+                    field: "Email",
+                    filterable: {
+                        cell: {
+                            operator: "contains"
+                        }
+                    }
+                }]
+        });
+    });
+</script>

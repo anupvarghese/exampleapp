@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEMS3_GSApp", "GEMS3_GSApp\GEMS3_GSApp.csproj", "{F4C8CCAF-9692-494C-BC61-B6C2E7EAD9F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEMS3_GSApp.Tests", "GEMS3_GSApp.Tests\GEMS3_GSApp.Tests.csproj", "{F07530F7-42F7-4FBF-B6ED-398FE9156D2D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEMS3_GSApp.Service", "GEMS3_GSApp.Service\GEMS3_GSApp.Service.csproj", "{5A5AF5C7-CD75-4795-9861-96E9252794FF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GEMS3_GSApp.Repository", "GEMS3_GSApp.Repository\GEMS3_GSApp.Repository.csproj", "{A2C81AD9-C28C-4BA8-A8C5-902EF4EE9904}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4C8CCAF-9692-494C-BC61-B6C2E7EAD9F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4C8CCAF-9692-494C-BC61-B6C2E7EAD9F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4C8CCAF-9692-494C-BC61-B6C2E7EAD9F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4C8CCAF-9692-494C-BC61-B6C2E7EAD9F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F07530F7-42F7-4FBF-B6ED-398FE9156D2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F07530F7-42F7-4FBF-B6ED-398FE9156D2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F07530F7-42F7-4FBF-B6ED-398FE9156D2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F07530F7-42F7-4FBF-B6ED-398FE9156D2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A5AF5C7-CD75-4795-9861-96E9252794FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A5AF5C7-CD75-4795-9861-96E9252794FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A5AF5C7-CD75-4795-9861-96E9252794FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A5AF5C7-CD75-4795-9861-96E9252794FF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2C81AD9-C28C-4BA8-A8C5-902EF4EE9904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2C81AD9-C28C-4BA8-A8C5-902EF4EE9904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2C81AD9-C28C-4BA8-A8C5-902EF4EE9904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2C81AD9-C28C-4BA8-A8C5-902EF4EE9904}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

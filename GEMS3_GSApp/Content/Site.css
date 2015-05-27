@@ -1,0 +1,100 @@
+﻿html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: Arial;
+    /*margin-bottom: 50px;*/
+}
+
+.nav-pills > li > a {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+
+.borderstyle {
+    border: 1px solid #509E2F;
+}
+
+.navbar {
+    background-image: linear-gradient(#FFF, #FFF 60%, #FFF);
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #FFF;
+    box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 0px;
+}
+
+.navbar-brand {
+    padding: 5px;
+}
+
+.navbar-default {
+    background-color: #FFF;
+    border-color: #FFF;
+}
+
+    .navbar-default .navbar-brand,
+    .navbar-default .navbar-brand:hover,
+    .navbar-default .navbar-brand:focus,
+    .navbar-default .navbar-nav > li > a {
+        color: #004C97;
+    }
+
+        .navbar-default .navbar-nav > li > a:hover,
+        .navbar-default .navbar-nav > li > a:focus {
+            color: #FFF;
+            background-color: #509E2F;
+        }
+
+    .navbar-default .navbar-toggle:hover,
+    .navbar-default .navbar-toggle:focus {
+        background-color: #178ACC;
+    }
+
+    .navbar-default .navbar-toggle {
+        border-color: #004C97;
+    }
+
+        .navbar-default .navbar-toggle .icon-bar {
+            background-color: #FFF;
+        }
+
+#sidebar {
+    padding: 10px;
+}
+
+    #sidebar a:hover, a:focus {
+        color: #FFF;
+        text-decoration: none;
+    }
+
+    #sidebar.nav > li > a,
+    #sidebar.nav > li > a:link {
+    }
+
+        #sidebar.nav > li > a:hover,
+        #sidebar.nav > li > a:focus {
+            background-color: #509E2F;
+        }
+
+    #sidebar.nav-pills > li.active > a,
+    #sidebar.nav-pills > li.active > a:hover,
+    #sidebar.nav-pills > li.active > a:focus {
+        color: #FFF;
+        background-color: #004C97;
+    }
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    /* Set the fixed height of the footer here */
+    height: 30px;
+    color: #004C97;
+    background-color: #FFF;
+    border: 1px dotted #509E2F;
+    padding-bottom: 10px;
+}
