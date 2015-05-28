@@ -135,6 +135,27 @@ public class UsersController : ODataController
 }
 ```
 * Remeber the `IQueryable`
+* Modify `WebApiConfig.cs` as follows
+```csharp
+public static void Register(HttpConfiguration config)
+{
+      var modelBuilder = new ODataConventionModelBuilder();
+      modelBuilder.EntitySet<User>("Users");
+      var model = modelBuilder.GetEdmModel();
+
+    	config.Routes.MapODataServiceRoute(
+              routeName: "OData",
+              routePrefix: "api",
+              model: model
+      );
+
+      config.Routes.MapHttpRoute(
+              name: "DefaultApi",
+              routeTemplate: "api/{controller}/{id}",
+              defaults: new { id = RouteParameter.Optional }
+      );
+}
+```
 * Create a view (HTML or Razor) and add the below code
 ```javascript
 <div id="grid"></div>
